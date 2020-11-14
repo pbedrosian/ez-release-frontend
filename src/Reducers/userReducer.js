@@ -2,9 +2,7 @@ const userReducer = (state = [], action) => {
     console.log(action)
     switch (action.type) {
         case "LOAD_USERS":
-            return {
-                state
-            }
+            return action.users
         default: 
             return state;
     }
