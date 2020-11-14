@@ -15,9 +15,10 @@ class App extends Component {
   componentDidMount = () => {
     this.props.fetchReleases()
     this.props.fetchUsers()
-    console.log('page loaded')
   }
   render() {
+    console.log('page loaded')
+    console.log(this.props.allState.releases)
     return (
       <Router>
         <div className="App">

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ReleaseContainer() {
+export default function leaseContainer() {
     return (
         <div>
             release continer
