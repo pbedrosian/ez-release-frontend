@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
 
-export default class App extends Component {
+import { connect } from 'react-redux'
+
+class App extends Component {
+
+  componentDidMount = () => {
+    console.log("ALL STATE")
+    console.log(this.props.allState)
+  }
   render() {
     return (
     <div className="App">
@@ -9,4 +16,12 @@ export default class App extends Component {
     )
   }
 }
+
+const mSTP = (state) => {
+  return {
+    allState: state
+  }
+}
+
+export default connect(mSTP)(App)
 
