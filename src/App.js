@@ -2,13 +2,16 @@ import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
 
+import {fetchReleases} from './Actions/releaseAction'
+
 class App extends Component {
 
   componentDidMount = () => {
-    console.log("ALL STATE")
-    console.log(this.props.allState)
+    this.props.fetchReleases()
   }
   render() {
+    console.log("ALL STATE")
+    console.log(this.props.allState)
     return (
     <div className="App">
         THIS IS HOME
@@ -23,5 +26,9 @@ const mSTP = (state) => {
   }
 }
 
-export default connect(mSTP)(App)
+const mDTP = (dispatch) => ({
+  fetchReleases: () => dispatch(fetchReleases())
+})
+
+export default connect(mSTP, mDTP)(App)
 

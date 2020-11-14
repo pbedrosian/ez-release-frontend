@@ -3,7 +3,7 @@ const releaseReducer = (state = [], action) => {
     switch (action.type) {
         case "LOAD_RELEASES":
             return {
-                state
+                ...state, releases: action.releases
             }
         default:
             return state;
