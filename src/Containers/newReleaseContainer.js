@@ -3,9 +3,10 @@ import React from 'react'
 export default function newReleaseContainer() {
     return (
         <div>
-            new release form container
-            <br></br>
+            <br />
             // add formInput component //
+            <br />
+            // add preview of PDF below //
         </div>
     )
 }

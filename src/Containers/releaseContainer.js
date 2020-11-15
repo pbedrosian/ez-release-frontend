@@ -1,11 +1,13 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import ReleaseNav from '../Components/releaseNav'
 
-export default function homeContainer() {
+const releaseContainer = () => {
     return (
         <div>
-            displays past release forms
-            <br></br>
-            // have search field nav for filtering past forms //
+            <ReleaseNav />
         </div>
     )
 }
+
+export default connect()(releaseContainer)
