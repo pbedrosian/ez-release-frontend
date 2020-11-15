@@ -30,7 +30,7 @@ export default class ReleaseNav extends Component {
             <div>
                 <Navbar className="bg-light justify-content-between">
                     <Form inline onSubmit={(event) => this.onSubmit(event)}>
-                        <FormControl type="text" name="name" placeholder="Client Last Name:" className=" mr-sm-3"
+                        <FormControl type="text" name="name" placeholder="Client Name:" className=" mr-sm-3"
                         maxLength="15"onChange={(event) => this.handleOnChange(event)} />
                         <FormControl type="text" name="month" placeholder="Month:" className=" mr-sm-3"
                         maxLength="9"onChange={(event) => this.handleOnChange(event)} />
