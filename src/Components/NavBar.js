@@ -6,10 +6,10 @@ const Navigation = () => {
   return (
     <div>
         <Navbar bg="dark" variant="dark">
-            <Navbar.Brand as={Link} to='/'>Navbar</Navbar.Brand>
+            <Navbar.Brand as={Link} to='/'>EZ-Release</Navbar.Brand>
             <Nav className="mr-auto">
                 <Nav.Link as={Link} to='/release-forms' >Release Forms</Nav.Link>
-                <Nav.Link as={Link} to='/test'>New Release</Nav.Link>
+                <Nav.Link as={Link} to='/new-release'>New Release</Nav.Link>
             </Nav>
         </Navbar>
     </div>
