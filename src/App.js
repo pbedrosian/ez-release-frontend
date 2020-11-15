@@ -16,9 +16,10 @@ class App extends Component {
 
   componentDidMount = () => {
     this.props.fetchReleases()
-    this.props.fetchUsers()
+    // this.props.fetchUsers()
   }
   render() {
+    console.log(this.props.allState)
     return (
       <Router>
         <div className="App">
@@ -34,10 +35,14 @@ class App extends Component {
   }
 }
 
+const mSTP = (state) => ({
+  allState: state
+})
+
 const mDTP = (dispatch) => ({
   fetchReleases: () => dispatch(fetchReleases()),
   fetchUsers: () => dispatch(fetchUsers())
 })
 
-export default connect(null, mDTP)(App)
+export default connect(mSTP, mDTP)(App)
 
