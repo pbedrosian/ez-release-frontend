@@ -3,7 +3,7 @@ import ReleaseNav from '../Components/releaseNav'
 import ReleaseCard from '../Components/ReleaseCard'
 
 import React, { Component } from 'react'
-import { CardDeck } from 'react-bootstrap'
+import { CardDeck, Container } from 'react-bootstrap'
 
 class releaseContainer extends Component {
     render() {
@@ -15,11 +15,11 @@ class releaseContainer extends Component {
         return (
             <div>
                 <ReleaseNav />
-                <div>
+                <Container center>
                     <CardDeck style={{alignItems: 'center'}}>
                         {releaseCards}
                     </CardDeck>
-                </div>
+                </Container>
             </div>
         )
     }
