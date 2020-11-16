@@ -31,11 +31,11 @@ export default class ReleaseNav extends Component {
                 <Navbar className="bg-light justify-content-between">
                     <Form inline onSubmit={(event) => this.onSubmit(event)}>
                         <FormControl type="text" name="name" placeholder="Client Name:" className=" mr-sm-3"
-                        maxLength="15"onChange={(event) => this.handleOnChange(event)} />
+                        maxLength="15"onChange={(event) => this.handleOnChange(event)} value={this.state.name} />
                         <FormControl type="text" name="month" placeholder="Month:" className=" mr-sm-3"
-                        maxLength="9"onChange={(event) => this.handleOnChange(event)} />
+                        maxLength="9"onChange={(event) => this.handleOnChange(event)} value={this.state.month} />
                         <FormControl type="text" name="year" placeholder="Year:" className=" mr-sm-3"
-                        maxLength="4" onChange={(event) => this.handleOnChange(event)} />
+                        maxLength="4" onChange={(event) => this.handleOnChange(event)} value={this.state.year} />
                         <InputGroup.Prepend>
                         <InputGroup.Text id="inputGroupPrepend">Status</InputGroup.Text>
                         </InputGroup.Prepend>

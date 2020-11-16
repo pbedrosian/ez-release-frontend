@@ -19,28 +19,41 @@ export default class ReleaseFormInput extends Component {
     })
 }
 
+onSubmit = (event) => {
+  event.preventDefault()
+  this.setState({
+    firstName: '',
+    lastName: '',
+    clientEmail: '',
+    jobTitle: '',
+    jobDescription: '',
+    dueDate: '',
+    additionalNotes: ''
+  })
+}
+
   
   render() {
     return (
       <div>
-        <Form >
+        <Form onSubmit={(event) => this.onSubmit(event)} >
           <Form.Row>
             <Form.Group as={Col} md="3" controlId="validationFormik101">
               <Form.Label>First name</Form.Label>
-              <Form.Control type="text" name="firstName" placeholder="First Name:" 
+              <Form.Control value={this.state.firstName} type="text" name="firstName" placeholder="First Name:" 
               onChange={(event) => this.handleOnChange(event)}/>
             </Form.Group>
 
             <Form.Group as={Col} md="3" controlId="validationFormik102">
               <Form.Label>Last name</Form.Label>
-              <Form.Control type="text" name="lastName" placeholder="Last Name:" 
+              <Form.Control value={this.state.lastName} type="text" name="lastName" placeholder="Last Name:" 
               onChange={(event) => this.handleOnChange(event)} />
             </Form.Group>
 
             <Form.Group as={Col} md="6" controlId="validationFormikUsername2">
               <Form.Label>Client Email</Form.Label>
               <InputGroup>
-                <Form.Control type="text" placeholder="Client Email:" name="clientEmail" 
+                <Form.Control value={this.state.clientEmail} type="text" placeholder="Client Email:" name="clientEmail" 
                 onChange={(event) => this.handleOnChange(event)} />
               </InputGroup>
             </Form.Group>
@@ -50,25 +63,25 @@ export default class ReleaseFormInput extends Component {
             <Form.Group as={Col} md="4" controlId="validationFormik103">
               <Form.Label>Job Title</Form.Label>
               <Form.Control
-                type="text" placeholder="Job Title:" name="jobTitle" 
+                type="text" placeholder="Job Title:" name="jobTitle" value={this.state.jobTitle}
                 onChange={(event) => this.handleOnChange(event)}/>
             </Form.Group>
 
             <Form.Group as={Col} md="8" controlId="validationFormik104">
               <Form.Label>Description</Form.Label>
-              <Form.Control type="text" placeholder="Description:" name="jobDescription" 
+              <Form.Control type="text" placeholder="Description:" name="jobDescription" value={this.state.jobDescription}
               onChange={(event) => this.handleOnChange(event)}/>
             </Form.Group>
 
             <Form.Group as={Col} md="3" controlId="validationFormik105">
               <Form.Label>Date Due</Form.Label>
-              <Form.Control type="text" placeholder="09-20-2021" name="dueDate" 
+              <Form.Control type="text" placeholder="09-20-2021" name="dueDate" value={this.state.dueDate}
               onChange={(event) => this.handleOnChange(event)}/>
             </Form.Group>
 
             <Form.Group as={Col} md="6" controlId="validationFormik105">
               <Form.Label>Additional Notes</Form.Label>
-              <Form.Control type="text" placeholder="Additional Notes:" name="additionalNotes" 
+              <Form.Control type="text" placeholder="Additional Notes:" name="additionalNotes" value={this.state.additionalNotes}
               onChange={(event) => this.handleOnChange(event)}/>
             </Form.Group>
             
