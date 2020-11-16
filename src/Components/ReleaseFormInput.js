@@ -1,7 +1,9 @@
 import { Form, Col, Button, InputGroup } from 'react-bootstrap'
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { addRelease } from '../Actions/releaseAction'
 
-export default class ReleaseFormInput extends Component {
+class ReleaseFormInput extends Component {
 
   state = {
     firstName: '',
@@ -21,6 +23,17 @@ export default class ReleaseFormInput extends Component {
 
 onSubmit = (event) => {
   event.preventDefault()
+  // const releaseData = {
+  //   "firstName": this.state.firstName,
+  //   "lastName": this.state.lastName,
+  //   "clientEmail": this.state.clientEmail,
+  //   "jobTitle": this.state.jobTitle,
+  //   "jobDescription": this.state.jobDescription,
+  //   "dueDate": this.state.dueDate,
+  //   "additionalNotes": this.state.additionalNotes
+  // }
+  console.log(this.state)
+  this.props.addRelease(this.state)
   this.setState({
     firstName: '',
     lastName: '',
@@ -30,8 +43,8 @@ onSubmit = (event) => {
     dueDate: '',
     additionalNotes: ''
   })
+  console.log('state set to 0')
 }
-
   
   render() {
     return (
@@ -91,3 +104,9 @@ onSubmit = (event) => {
       </div>
       )}
     }
+
+    const mDTP = (dispatch) => ({
+      addRelease: (obj) => dispatch(addRelease(obj))
+    })
+
+    export default connect(null, mDTP)(ReleaseFormInput)

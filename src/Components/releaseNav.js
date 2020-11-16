@@ -37,7 +37,7 @@ export default class ReleaseNav extends Component {
                         <FormControl type="text" name="year" placeholder="Year:" className=" mr-sm-3"
                         maxLength="4" onChange={(event) => this.handleOnChange(event)} value={this.state.year} />
                         <InputGroup.Prepend>
-                        <InputGroup.Text id="inputGroupPrepend">Status</InputGroup.Text>
+                        <InputGroup.Text id="inputGroupPrepend">Filter</InputGroup.Text>
                         </InputGroup.Prepend>
                         <Form.Control as="select" custom>
                             <option>All</option>

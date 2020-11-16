@@ -9,7 +9,7 @@ class releaseContainer extends Component {
     render() {
         const releaseCards = this.props.releaseForms.map(form => {
             return (
-                <ReleaseCard data={form} style={{flex: 1}} />
+                <ReleaseCard data={form} style={{flex: 1}} key={form.id} />
             )
         })
         return (

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import ReleaseFormInput from '../Components/ReleaseFormInput'
-import FormExample from '../Components/ReleaseFormInput'
 
 export default function newReleaseContainer() {
     return (
@@ -15,4 +14,3 @@ export default function newReleaseContainer() {
         </div>
     )
 }
-
