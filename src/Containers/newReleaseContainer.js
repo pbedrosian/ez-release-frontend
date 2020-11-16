@@ -1,16 +1,16 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import ReleaseFormInput from '../Components/ReleaseFormInput'
-import FormExample from '../Components/testForm'
+import FormExample from '../Components/ReleaseFormInput'
 
 export default function newReleaseContainer() {
     return (
         <div>
-            {/* <ReleaseFormInput /> */}
-            <br />
             <br />
             <Container>
-                <FormExample />
+            <h1>New Photo Release:</h1>
+                <br />
+                <ReleaseFormInput />
             </Container>
         </div>
     )

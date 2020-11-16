@@ -16,6 +16,8 @@ class releaseContainer extends Component {
             <div>
                 <ReleaseNav />
                 <Container center>
+                <h1>All Release Forms:</h1>          
+
                     <CardDeck style={{alignItems: 'center'}}>
                         {releaseCards}
                     </CardDeck>
