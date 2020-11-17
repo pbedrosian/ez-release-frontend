@@ -9,7 +9,6 @@ export const fetchReleases = () => {
   }
 
   export const addRelease = (release) => {
-    debugger
     console.log(release)
     return (dispatch) => {
       fetch('http://localhost:3001/releases', {

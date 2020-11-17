@@ -23,27 +23,16 @@ class ReleaseFormInput extends Component {
 
 onSubmit = (event) => {
   event.preventDefault()
-  // const releaseData = {
-  //   "firstName": this.state.firstName,
-  //   "lastName": this.state.lastName,
-  //   "clientEmail": this.state.clientEmail,
-  //   "jobTitle": this.state.jobTitle,
-  //   "jobDescription": this.state.jobDescription,
-  //   "dueDate": this.state.dueDate,
-  //   "additionalNotes": this.state.additionalNotes
-  // }
-  console.log(this.state)
   this.props.addRelease(this.state)
   this.setState({
-    firstName: '',
-    lastName: '',
+    clientFirstName: '',
+    clientLastName: '',
     clientEmail: '',
     jobTitle: '',
     jobDescription: '',
     dueDate: '',
     additionalNotes: ''
   })
-  console.log('state set to 0')
 }
   
   render() {
@@ -53,13 +42,13 @@ onSubmit = (event) => {
           <Form.Row>
             <Form.Group as={Col} md="3" controlId="validationFormik101">
               <Form.Label>First name</Form.Label>
-              <Form.Control value={this.state.firstName} type="text" name="firstName" placeholder="First Name:" 
+              <Form.Control value={this.state.clientFirstName} type="text" name="clientFirstName" placeholder="First Name:" 
               onChange={(event) => this.handleOnChange(event)}/>
             </Form.Group>
 
             <Form.Group as={Col} md="3" controlId="validationFormik102">
               <Form.Label>Last name</Form.Label>
-              <Form.Control value={this.state.lastName} type="text" name="lastName" placeholder="Last Name:" 
+              <Form.Control value={this.state.clientLastName} type="text" name="clientLastName" placeholder="Last Name:" 
               onChange={(event) => this.handleOnChange(event)} />
             </Form.Group>
 

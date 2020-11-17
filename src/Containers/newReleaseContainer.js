@@ -7,7 +7,9 @@ export default function newReleaseContainer() {
         <div>
             <br />
             <Container>
-            <h1>New Photo Release:</h1>
+            <h1>New Photo Release</h1>
+            <br />
+            <h3>Enter Client Info:</h3>
                 <br />
                 <ReleaseFormInput />
             </Container>
