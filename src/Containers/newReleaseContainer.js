@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import ReleaseFormInput from '../Components/ReleaseFormInput'
+import PDF from '../Components/PDF'
 
 export default function newReleaseContainer() {
     return (
@@ -12,7 +13,9 @@ export default function newReleaseContainer() {
             <h3>Enter Client Info:</h3>
                 <br />
                 <ReleaseFormInput />
-            </Container>
+                {/* <TestForm /> */}
+                <PDF />
+             </Container>
         </div>
     )
 }

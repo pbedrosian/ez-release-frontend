@@ -70,9 +70,24 @@ class TestForm extends Component {
     })
   }
 
+onSubmit = (event) => {
+  event.preventDefault()
+  this.props.addRelease(this.state)
+  this.setState({
+    clientFirstName: '',
+    clientLastName: '',
+    clientEmail: '',
+    jobTitle: '',
+    jobDescription: '',
+    dueDate: '',
+    additionalNotes: ''
+  })
+}
+
 validateForm = (errors) => {
   let valid = true;
   Object.values(errors).forEach(
+    // if we have an error string set valid to false
     (val) => val.length > 0 && (valid = false)
   );
   return valid;
