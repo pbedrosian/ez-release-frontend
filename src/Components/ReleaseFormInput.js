@@ -2,6 +2,8 @@ import { Form, Col, Button, InputGroup } from 'react-bootstrap'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addRelease } from '../Actions/releaseAction'
+import ReleaseModal from './ReleaseModal'
+
 
 class TestForm extends Component {
 
@@ -160,8 +162,10 @@ handleSubmit = (event) => {
             </Form.Group>
             
           </Form.Row>
-          <Button type="submit">Submit form</Button>
+          <Button type="submit">Submit Release Form</Button>
         </Form>
+        <br />
+        <ReleaseModal />
       </div>
       )}
     }

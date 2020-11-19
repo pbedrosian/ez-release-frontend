@@ -2,6 +2,7 @@ import React from 'react';
 import { Page, Text, View, Document, StyleSheet, Image, Font } from '@react-pdf/renderer';
 
 const Quixote = () => (
+  <View>
     <Document>
       <Page style={styles.body}>
         <Text style={styles.header} fixed>
@@ -179,6 +180,7 @@ const Quixote = () => (
         )} fixed />
       </Page>
     </Document>
+    </View>
   );
   
   Font.register({
@@ -234,7 +236,7 @@ const Quixote = () => (
     },
   });
   
-//   ReactPDF.render(<Quixote />);
+  // ReactPDF.render(<Quixote />);
 
   export default Quixote
 
