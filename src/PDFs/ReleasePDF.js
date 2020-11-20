@@ -23,12 +23,8 @@ const styles = StyleSheet.create({
     },
     text: {
       margin: 12,
-      fontSize: 14,
+      fontSize: 12,
       textAlign: 'justify',
-    },
-    image: {
-      marginVertical: 15,
-      marginHorizontal: 100,
     },
     header: {
       fontSize: 12,
@@ -53,7 +49,7 @@ const ReleasePDF = (props) => (
     <Page style={styles.body}>
       <Text style={styles.title}>Photo Release Form</Text>
       <Text style={styles.text}>
-      I, {props.formData.clientFirstName} hereby grant and authorize _____________________ 
+      I, <Text style={{textDecoration: 'underline'}}>{props.formData.clientFirstName} {props.formData.clientLastName}</Text>  hereby grant and authorize _____________________ 
       the right to take, edit, alter, copy, exhibit, publish, distribute and 
       make use of any and all pictures or video taken of me to be used in and/or 
       for any lawful promotional materials including, but not limited to, 
@@ -89,13 +85,22 @@ const ReleasePDF = (props) => (
       or any other persons may make while acting on my behalf or on behalf of my estate.
       </Text>
       <Text style={styles.text}>
-      Printed Name: _________________________________
+      Printed Name: <Text style={{textDecoration: 'underline'}}>{props.formData.clientFirstName} {props.formData.clientLastName}</Text> 
+      </Text>
+      <Text style={styles.text}>
+      Email: <Text style={{textDecoration: 'underline'}}>{props.formData.clientEmail}</Text>
       </Text>
       <Text style={styles.text}>
       Signature: ____________________________________	
       </Text>
       <Text style={styles.text}>
       Date: ___________________________
+      </Text>
+      <Text style={styles.text}>
+      <Text>This form must be returned by {props.formData.dueDate}</Text>
+      </Text>
+      <Text style={styles.text}>
+      Addional Notes: {props.formData.additionalNotes}
       </Text>
       <Text style={styles.pageNumber} render={({ pageNumber, totalPages }) => (
         `${pageNumber} / ${totalPages}`
