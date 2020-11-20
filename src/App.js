@@ -7,9 +7,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 import Navigation from './Components/NavBar';
-import newReleaseContainer from './Containers/newReleaseContainer'
+import NewReleaseContainer from './Containers/newReleaseContainer'
 import ReleaseContainer from './Containers/releaseContainer'
 import homeContainer from './Containers/homeContainer'
+import Release from './Components/release'
 
 
 class App extends Component {
@@ -26,8 +27,9 @@ class App extends Component {
           <Navigation/>
           <Switch>
             <Route exact path='/' component={homeContainer} />
-            <Route path='/release-forms' component={ReleaseContainer} />
-            <Route path='/new-release' component={newReleaseContainer} />
+            <Route exact path='/release-forms' component={ReleaseContainer} />
+            <Route path='/release-forms/:id' component={Release} />
+            <Route path='/new-release' render={(routerProps) => <NewReleaseContainer history={routerProps.history}/>} />
           </Switch>
         </div>
       </Router>

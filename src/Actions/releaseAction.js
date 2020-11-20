@@ -8,7 +8,8 @@ export const fetchReleases = () => {
     }
   }
 
-  export const addRelease = (release) => {
+  export const addRelease = (release, history) => {
+    debugger
     console.log(release)
     return (dispatch) => {
       fetch('http://localhost:3001/releases', {
@@ -21,6 +22,7 @@ export const fetchReleases = () => {
       .then(resp => resp.json())
       .then(newRelease => {
         dispatch({type: 'ADD_RELEASE', payload: newRelease })
+        history.push(`/release-forms/${newRelease.id}`)
       })
     }
   }

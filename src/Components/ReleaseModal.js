@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import { Button } from 'react-bootstrap';
 import ReactModal from 'react-modal';
+import ReleasePDF from '../PDFs/ReleasePDF'
+import { Container } from 'react-bootstrap'
+import { PDFViewer } from '@react-pdf/renderer';
+
 
 const customStyles = {
     overlay: {
@@ -10,6 +14,10 @@ const customStyles = {
         background: '#1a1818'
     }
   };
+
+const pdfStyles = {
+
+}
 
 
 class ReleaseModal extends Component {
@@ -38,9 +46,15 @@ class ReleaseModal extends Component {
           <ReactModal 
             style={customStyles}
              isOpen={this.state.showModal}
-             contentLabel="Minimal Modal Example"
           >
             <Button onClick={this.handleCloseModal}>X</Button>
+            <bp />
+            <bp />
+            <Container style={{height: '100%'}}>
+            <PDFViewer style={{width: '100%', height: "95%" }} >
+              <ReleasePDF formData={this.props.formData} />
+            </PDFViewer>  
+            </Container>          
           </ReactModal>
         </div>
       );

@@ -2,7 +2,7 @@ import React from 'react'
 import { Container } from 'react-bootstrap'
 import ReleaseFormInput from '../Components/ReleaseFormInput'
 
-export default function newReleaseContainer() {
+export default function NewReleaseContainer(props) {
     return (
         <div>
             <br />
@@ -11,8 +11,7 @@ export default function newReleaseContainer() {
             <br />
             <h3>Enter Client Info:</h3>
                 <br />
-                <ReleaseFormInput />
-                {/* <TestForm /> */}
+                <ReleaseFormInput history={props.history} />
                 <br />
              </Container>
         </div>

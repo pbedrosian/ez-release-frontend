@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addRelease } from '../Actions/releaseAction'
 import ReleaseModal from './ReleaseModal'
+// import * as emailjs from 'emailjs-com'
+
 
 
 class TestForm extends Component {
@@ -82,8 +84,18 @@ validateForm = (errors) => {
 
 handleSubmit = (event) => {
   event.preventDefault();
+  const {clientFirstName, clientLastName, clientEmail, jobTitle, jobDescription, dueDate} = this.state
+
+  let emailParams = {
+    from_name: 'Right Hand Films',
+    to_name: `${clientFirstName} ${clientLastName}`,
+    subject: jobTitle,
+    message_html: jobDescription,
+    due_date: dueDate
+   }
+
   if(this.validateForm(this.state.errors)) {
-    this.props.addRelease(this.state)
+    this.props.addRelease(this.state, this.props.history)
     this.setState({
       clientFirstName: '',
       clientLastName: '',
@@ -165,13 +177,13 @@ handleSubmit = (event) => {
           <Button type="submit">Submit Release Form</Button>
         </Form>
         <br />
-        <ReleaseModal />
+        <ReleaseModal formData={this.state} />
       </div>
       )}
     }
 
     const mDTP = (dispatch) => ({
-      addRelease: (obj) => dispatch(addRelease(obj))
+      addRelease: (obj, history) => dispatch(addRelease(obj, history))
     })
 
     export default connect(null, mDTP)(TestForm)

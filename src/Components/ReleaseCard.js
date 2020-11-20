@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ReleaseCard = (props) => {
     return (
@@ -11,8 +12,8 @@ const ReleaseCard = (props) => {
                     <Card.Text>
                         {props.data.jobDescription}
                     </Card.Text>
-                    <Card.Link href="#">View Form</Card.Link>
-                    <Card.Link href="#">Another Link</Card.Link>
+                    <Card.Link as={Link} to={`/release-forms/${props.data.id}`}>View Form</Card.Link>
+                    <Card.Link >Another Link</Card.Link>
                 </Card.Body>
                 <Card.Footer>
                      <small className="text-muted">Due Date: {props.data.dueDate} - status: pending</small>
