@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const ReleaseCard = (props) => {
     const status = () => {
-        debugger
         if (props.data.signed === true) {
             return 'status: SIGNED'
         } else {

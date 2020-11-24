@@ -6,15 +6,31 @@ import React, { Component } from 'react'
 import { CardDeck, Container } from 'react-bootstrap'
 
 class releaseContainer extends Component {
+
+    state = {
+        name: '',
+        month: '',
+        year: ''
+    }
+
+    handleOnChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
     render() {
-        const releaseCards = this.props.releaseForms.map(form => {
+        debugger
+        let filtered = this.props.releaseForms.filter(r => r.clientFirstName.startsWith(this.state.name))
+        // const releaseCards = this.props.releaseForms.map(form => {
+            const releaseCards = filtered.map(form => {
             return (
                 <ReleaseCard data={form} style={{flex: 1}} key={form.id} />
             )
         })
         return (
             <div>
-                <ReleaseNav />
+                <ReleaseNav changeState={this.handleOnChange} state={this.state} />
                 <Container >
                 <h1>All Release Forms:</h1>          
 
