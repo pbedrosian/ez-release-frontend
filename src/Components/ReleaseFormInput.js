@@ -96,7 +96,7 @@ handleSubmit = (event) => {
   event.preventDefault();
   if(this.validateForm(this.state.errors)) {
     this.props.addRelease(this.state, this.props.history)
-    this.sendEmail()
+    // this.sendEmail()
     this.setState({
       clientFirstName: '',
       clientLastName: '',
