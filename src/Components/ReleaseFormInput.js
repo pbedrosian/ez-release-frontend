@@ -3,7 +3,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addRelease } from '../Actions/releaseAction'
 import ReleaseModal from './ReleaseModal'
-// import * as emailjs from 'emailjs-com'
+
+import emailjs from 'emailjs-com';
 
 
 
@@ -82,20 +83,20 @@ validateForm = (errors) => {
   return valid;
 }
 
+sendEmail(e) {
+  emailjs.sendForm('gmail', 'template_0xd4gck', e.target, 'user_YVjPtheLRs4bRVcnZXymU')
+    .then((result) => {
+        console.log(result.text);
+    }, (error) => {
+        console.log(error.text);
+    });
+}
+
 handleSubmit = (event) => {
   event.preventDefault();
-  const {clientFirstName, clientLastName, clientEmail, jobTitle, jobDescription, dueDate} = this.state
-
-  let emailParams = {
-    from_name: 'Right Hand Films',
-    to_name: `${clientFirstName} ${clientLastName}`,
-    subject: jobTitle,
-    message_html: jobDescription,
-    due_date: dueDate
-   }
-
   if(this.validateForm(this.state.errors)) {
     this.props.addRelease(this.state, this.props.history)
+    this.sendEmail()
     this.setState({
       clientFirstName: '',
       clientLastName: '',
@@ -150,7 +151,7 @@ handleSubmit = (event) => {
               <Form.Label>Job Title</Form.Label>
               <Form.Control
                 type="text" placeholder="Job Title:" name="jobTitle" value={this.state.jobTitle}
-                onChange={(event) => this.handleChange(event)}/>
+                onChange={(event) => this.handleChange(event)} maxLength="25"/>
               {errors.jobTitle.length > 0 && <span className='error' style={errorSyle}>{errors.jobTitle}</span>}
             </Form.Group>
 
