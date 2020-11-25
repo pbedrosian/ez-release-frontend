@@ -42,7 +42,7 @@ class ReleaseModal extends Component {
     render () {
       return (
         <div>
-          <Button onClick={this.handleOpenModal}>Preview Release Form</Button>
+          <Button onClick={this.handleOpenModal} variant='dark'>Preview Release Form</Button>
           <ReactModal 
             style={customStyles}
              isOpen={this.state.showModal}

@@ -175,7 +175,7 @@ handleSubmit = (event) => {
             </Form.Group>
             
           </Form.Row>
-          <Button type="submit">Submit Release Form</Button>
+          <Button type="submit" variant='dark'>Submit Release Form</Button>
         </Form>
         <br />
         <ReleaseModal formData={this.state} />

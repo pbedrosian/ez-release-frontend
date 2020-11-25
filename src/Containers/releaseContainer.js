@@ -9,8 +9,8 @@ class releaseContainer extends Component {
 
     state = {
         name: '',
-        month: '',
-        year: ''
+        email: '',
+        status: 'All'
     }
 
     handleOnChange = (event) => {
@@ -19,10 +19,31 @@ class releaseContainer extends Component {
         })
     }
 
+    filterReleases = () => {
+        let releaseStatus = () => {
+            if (this.state.status === 'Pending') {
+                return false 
+            } else if (this.state.status === 'Signed') {
+                return true
+            } else {
+                console.log('test')
+            }
+        }
+        let filteredName = this.props.releaseForms.filter(r => r.clientFirstName.startsWith(this.state.name))
+        let filteredEmail = filteredName.filter(r => r.clientEmail.startsWith(this.state.email))
+
+        if (this.state.status !== 'All') {
+            let finalFilter = filteredEmail.filter(r => r.signed === releaseStatus())
+            return finalFilter
+        } else {
+            return filteredEmail
+        }
+        
+
+    }
+
     render() {
-        debugger
-        let filtered = this.props.releaseForms.filter(r => r.clientFirstName.startsWith(this.state.name))
-        // const releaseCards = this.props.releaseForms.map(form => {
+        let filtered = this.filterReleases()
             const releaseCards = filtered.map(form => {
             return (
                 <ReleaseCard data={form} style={{flex: 1}} key={form.id} />
