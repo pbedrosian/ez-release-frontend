@@ -178,7 +178,7 @@ handleSubmit = (event) => {
           <Button type="submit" variant='dark'>Submit Release Form</Button>
         </Form>
         <br />
-        <ReleaseModal formData={this.state} />
+        <ReleaseModal formData={this.state} user={this.props.state} />
       </div>
       )}
     }
@@ -187,4 +187,8 @@ handleSubmit = (event) => {
       addRelease: (obj, history) => dispatch(addRelease(obj, history))
     })
 
-    export default connect(null, mDTP)(TestForm)
+    const mSTP = (state) => ({
+      state: state.users[0]
+    })
+
+    export default connect(mSTP, mDTP)(TestForm)

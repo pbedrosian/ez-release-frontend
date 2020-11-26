@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
@@ -11,6 +11,19 @@ const ReleaseCard = (props) => {
             return 'status: PENDING'
         }
     }
+
+    const cardFooter = () => {
+        if (status() === 'status: PENDING') {
+            return ( 
+            <Card.Link onClick={(event)=> handleClick(event)} variant='link' id={props.data.id}>Mark as Signed</Card.Link> 
+            )
+        }
+    }
+
+    const handleClick = (event) => {
+        debugger
+    }
+
     return (
         <div style={{paddingTop: '20px', alighSelf: 'center'}}>
             <Card bg='dark' style={{ width: '21rem', height: '17rem', top: '10px' }}>
@@ -23,7 +36,7 @@ const ReleaseCard = (props) => {
                     <Card.Title>Job:</Card.Title>
                     <Card.Subtitle className="mb-2">{props.data.jobTitle}</Card.Subtitle>
                     <Card.Link as={Link} to={`/release-forms/${props.data.id}`}>View Form</Card.Link>
-                    <Card.Link >Another Link</Card.Link>
+                    {/* {cardFooter()} */}
                 </Card.Body>
                 <Card.Footer>
                      <small className="text-muted">Due Date: {props.data.dueDate} - {status()}</small>

@@ -17,7 +17,7 @@ class App extends Component {
 
   componentDidMount = () => {
     this.props.fetchReleases()
-    // this.props.fetchUsers()
+    this.props.fetchUsers()
   }
   render() {
     console.log(this.props.allState)

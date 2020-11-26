@@ -13,8 +13,6 @@ export default class ReleaseNav extends Component {
                         maxLength="15"onChange={(event) => this.props.changeState(event)} value={this.props.state.name} />
                         <FormControl type="text" name="email" placeholder="Email:" className=" mr-sm-3"
                         onChange={(event) => this.props.changeState(event)} value={this.props.state.email} />
-                        {/* <FormControl type="text" name="year" placeholder="Year:" className=" mr-sm-3"
-                        maxLength="4" onChange={(event) => this.props.changeState(event)} value={this.props.state.year} /> */}
                         <InputGroup.Prepend>
                         </InputGroup.Prepend>
                         <Form.Control as="select" name='status' onChange={(event) => this.props.changeState(event)} custom>

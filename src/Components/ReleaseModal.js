@@ -52,7 +52,7 @@ class ReleaseModal extends Component {
             <bp />
             <Container style={{height: '100%'}}>
             <PDFViewer style={{width: '100%', height: "95%" }} >
-              <ReleasePDF formData={this.props.formData} />
+              <ReleasePDF formData={this.props.formData} user={this.props.user} />
             </PDFViewer>  
             </Container>          
           </ReactModal>

@@ -44,7 +44,7 @@ class releaseContainer extends Component {
 
     render() {
         let filtered = this.filterReleases()
-            const releaseCards = filtered.map(form => {
+        const releaseCards = filtered.map(form => {
             return (
                 <ReleaseCard data={form} style={{flex: 1}} key={form.id} />
             )
@@ -54,7 +54,6 @@ class releaseContainer extends Component {
                 <ReleaseNav changeState={this.handleOnChange} state={this.state} />
                 <Container >
                 <h1>All Release Forms:</h1>          
-
                     <CardDeck style={{alignItems: 'center'}}>
                         {releaseCards}
                     </CardDeck>

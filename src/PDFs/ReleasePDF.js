@@ -49,8 +49,7 @@ const ReleasePDF = (props) => (
     <Page style={styles.body}>
       <Text style={styles.title}>Photo Release Form</Text>
       <Text style={styles.text}>
-      I, <Text style={{textDecoration: 'underline'}}>{props.formData.clientFirstName} {props.formData.clientLastName}</Text>  hereby grant and authorize _____________________ 
-      the right to take, edit, alter, copy, exhibit, publish, distribute and 
+      I, <Text style={{textDecoration: 'underline'}}>{props.formData.clientFirstName} {props.formData.clientLastName}</Text>  hereby grant and authorize <Text style={{textDecoration: 'underline'}}>{props.user.first_name} {props.user.last_name} </Text> the right to take, edit, alter, copy, exhibit, publish, distribute and 
       make use of any and all pictures or video taken of me to be used in and/or 
       for any lawful promotional materials including, but not limited to, 
       newsletters, flyers, posters, brochures, advertisements, fundraising letters, 
@@ -77,10 +76,10 @@ const ReleasePDF = (props) => (
       </Text>
       <Text style={styles.text}>
       I understand and agree that these materials shall become the 
-      property of _________________ and will not be returned..
+      property of <Text style={{textDecoration: 'underline'}}>{props.user.first_name} {props.user.last_name} </Text> and will not be returned..
       </Text>
       <Text style={styles.text}>
-      I hereby hold harmless and release _______________________ from all liability, 
+      I hereby hold harmless and release <Text style={{textDecoration: 'underline'}}>{props.user.first_name} {props.user.last_name} </Text> from all liability, 
       petitions, and causes of action which I, my heirs, representative, executors, administrators, 
       or any other persons may make while acting on my behalf or on behalf of my estate.
       </Text>
