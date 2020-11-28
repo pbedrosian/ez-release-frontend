@@ -5,9 +5,9 @@ const releaseReducer = (state = [], action) => {
         case "ADD_RELEASE":
             return  state = [...state, action.payload]
         case "UPDATE_RELEASE":
-            let releaseIndex = state.find(r => r.id === action.payload.id).id
+            let index = (release) => release.id === action.payload.id
             let newState = [...state]
-            newState[releaseIndex] = action.payload
+            newState[index] = action.payload
             return state = [...newState]
         default:
             return state;
