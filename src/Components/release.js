@@ -2,10 +2,15 @@ import React, { Component } from 'react'
 import { Container, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import ReleasePDF from '../PDFs/ReleasePDF'
-import { PDFViewer } from '@react-pdf/renderer';
+import { PDFViewer, PDFDownloadLink } from '@react-pdf/renderer';
 import { updateRelease } from '../Actions/releaseAction'
 
 class Release extends Component {
+
+    componentDidMount = () => {
+        localStorage.setItem('releaseForms', this.props.releaseForms);
+      }
+
 
     handleOnClick = () => {
         if (window.confirm("You are about to mark this form as Singed. Do you wish to Continue?")) {
@@ -15,6 +20,7 @@ class Release extends Component {
     }
     
     form = this.props.releaseForms.find(r => r.id === parseInt(this.props.match.params.id))
+    // form = JSON.parse(localStorage.getItem('releaseForms').find(r => r.id === parseInt(this.props.match.params.id)))
 
     buttonStatus = () => {
         if (this.form.signed === true) {

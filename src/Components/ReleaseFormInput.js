@@ -5,7 +5,9 @@ import { addRelease } from '../Actions/releaseAction'
 import ReleaseModal from './ReleaseModal'
 
 import emailjs from 'emailjs-com';
-
+// import ReactPDF from '@react-pdf/renderer';
+// import ReleasePDF from '../PDFs/ReleasePDF'
+ import {releaseForm} from './senablePDF'
 
 
 class TestForm extends Component {
@@ -84,7 +86,7 @@ validateForm = (errors) => {
 }
 
 sendEmail(e) {
-  emailjs.sendForm('gmail', 'template_0xd4gck', e.target, 'user_YVjPtheLRs4bRVcnZXymU')
+  emailjs.sendForm('service_7saaxq5', 'template_0xd4gck', e.target, 'user_YVjPtheLRs4bRVcnZXymU')
     .then((result) => {
         console.log(result.text);
     }, (error) => {
@@ -96,7 +98,7 @@ handleSubmit = (event) => {
   event.preventDefault();
   if(this.validateForm(this.state.errors)) {
     this.props.addRelease(this.state, this.props.history)
-    // this.sendEmail()
+    this.sendEmail(event)
     this.setState({
       clientFirstName: '',
       clientLastName: '',
@@ -172,6 +174,10 @@ handleSubmit = (event) => {
               <Form.Label>Additional Notes</Form.Label>
               <Form.Control type="text" placeholder="Additional Notes:" name="additionalNotes" value={this.state.additionalNotes}
               onChange={(event) => this.handleChange(event)}/>
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Control type="hidden" name="message" value={releaseForm()}/>
             </Form.Group>
             
           </Form.Row>

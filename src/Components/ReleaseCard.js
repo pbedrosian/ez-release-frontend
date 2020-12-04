@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+import { Navbar, Nav } from 'react-bootstrap';
 
 const ReleaseCard = (props) => {
     const status = () => {
@@ -35,7 +36,7 @@ const ReleaseCard = (props) => {
                     <br />
                     <Card.Title>Job:</Card.Title>
                     <Card.Subtitle className="mb-2">{props.data.jobTitle}</Card.Subtitle>
-                    <Card.Link as={Link} to={`/release-forms/${props.data.id}`}>View Form</Card.Link>
+                    <Nav.Link as={Link} to={`/release-forms/${props.data.id}`}>View Form</Nav.Link>
                     {/* {cardFooter()} */}
                 </Card.Body>
                 <Card.Footer>
